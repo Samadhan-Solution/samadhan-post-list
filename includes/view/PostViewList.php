@@ -105,7 +105,9 @@ class PostViewList
 
 
         $post_query = new WP_Query($args);
-        $postslist=$post_query->posts;
+        $postslists =$post_query->posts;
+
+        $postslist = array_reverse($postslists);
 
         $total_pages = $post_query->max_num_pages;
 
@@ -144,13 +146,17 @@ class PostViewList
     }
 
     public function get_filter_html($title,$sort_by_options,$category_options){
-        $postList='<form method="post" action="" ><div class="container">
-
-                      <div class="row ">
-                      
-                          <div class="col-md-5">  
+        $postList='<form method="post" action="" >
+                  <div class="container">
+                      <div class="row" style="background-color: powderblue; padding-top: 6%; padding-bottom: 6%;">
+                  <div class="col-md-12">  
+                 <h1 style="text-align: center; font-size: 40px; font-weight: 700; font-family: Gotham-ultra, sans-serif;">DIGITAL MARKETING NEWS</h1> 
+                    </div>
+                    </div>
+                      <div class="row"  style="background-color: powderblue; padding-bottom: 3%;">
+                         <div class="col-md-5">  
                          <div class="form-group row ">
-                                <label for="search" class="col-sm-3 col-form-label">SEARCH </label>
+                                <label for="search" class="col-sm-3 col-form-label"  style="color: #11003C;">SEARCH </label>
                                 <div class="col-sm-9 form-inline">
                                      <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" aria-label="Search" value="'.$title.'">
                                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"> </i></button>
@@ -184,6 +190,7 @@ class PostViewList
                     </div></form>';
         return $postList;
     }
+
    public function samadhan_get_post_latest_item($item){
 
        $image=wp_get_attachment_image_src(get_post_meta( $item[0]->ID,'_thumbnail_id',true),$size = 'full', $icon = false  );
@@ -191,8 +198,8 @@ class PostViewList
        $postList='<div class="container">
                   <div class="row">
                     <div class="col-md-12">
-                    <h1>'.$item[0]->post_title.'</h1>
-                    <h4>'.$item[0]->post_excerpt.'</h4>
+                    <h1 style="margin-top: 6%;">'.$item[0]->post_title.'</h1>
+                    <h4>'.$item[0]->post_name.'</h4>
                     <h5>'.date('d-m-Y',strtotime($item[0]->post_date)).'</h5>
                     <img src="'.$image[0].'" alt="Los Angeles" style="height: auto; max-width: 100%;">
                     </div>
