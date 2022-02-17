@@ -4,7 +4,7 @@
  * Plugin Name: Samadhan Post List
  * Plugin URI: http://www.samadhan.com
  * Description: Easily manage and view your post list.
- * Version: 1.1.0
+ * Version: 2.0.7
  * Author: Samadhan Consultants
  * Author URI: http://www.samadhan.com
  * Text Domain: smdn_post_list
@@ -13,6 +13,10 @@
 
 include_once('includes/model/PostModel.php');
 include_once('includes/view/PostViewList.php');
+
+include_once('post-import/model/PostImportModel.php');
+include_once('post-import/view/PostImortView.php');
+
 
 function samadhan_post_style_loaded(){
 
@@ -25,3 +29,12 @@ function samadhan_post_style_loaded(){
 
 }
 
+add_action( 'pre_get_posts', 'wpb_custom_query' );
+//function to modify default WordPress query
+function wpb_custom_query( $query ) {
+
+    if( $query->is_main_query() && ! is_admin() && $query->is_home() ) {
+        $query->set( 'orderby', 'date' );
+        $query->set( 'order', 'DESC' );
+    }
+}
