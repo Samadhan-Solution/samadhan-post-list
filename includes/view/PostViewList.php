@@ -7,11 +7,12 @@ use WP_Query;
 class PostViewList
 {
     public function __construct(){
+        samadhan_post_style_loaded();
         add_shortcode('smdn_post_list',array($this,'smdn_get_post_list_view'));
     }
     public function smdn_get_post_list_view($atts){
 
-        samadhan_post_style_loaded();
+
 
         global $paged;
         $date = '';
