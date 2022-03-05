@@ -23,8 +23,8 @@ function samadhan_post_style_loaded(){
     wp_enqueue_style('bootstrap.min.css', plugins_url('/vandor/bootstrap.min.css',__FILE__) , array(), '1.0.0', 'all');
     wp_enqueue_style('post-list', plugins_url('/apps/css/post-list.css',__FILE__) , array(), '1.0.0', 'all');
 
-    wp_enqueue_script('jquery.slim.min', plugins_url('/vandor/jquery.slim.min.js',__FILE__) , array('jquery'), '1.0.0', true);
-    wp_enqueue_script('bootstrap.bundle.min', plugins_url('/vandor/bootstrap.bundle.min.js',__FILE__) , array('jquery.slim.min'), '1.0.0', true);
+   // wp_enqueue_script('jquery.slim.min', plugins_url('/vandor/jquery.slim.min.js',__FILE__) , array('jquery'), '1.0.0', true);
+    //wp_enqueue_script('bootstrap.bundle.min', plugins_url('/vandor/bootstrap.bundle.min.js',__FILE__) , array('jquery.slim.min'), '1.0.0', true);
 
 
 }
