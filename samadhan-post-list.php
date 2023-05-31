@@ -8,7 +8,7 @@
  * Author: Samadhan Consultants
  * Author URI: http://www.samadhan.com
  * Text Domain: smdn_post_list
- * samadhan plugins
+ * samadhan plugins test
 
  */
 
